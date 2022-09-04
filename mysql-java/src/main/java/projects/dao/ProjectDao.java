@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import projects.exception.DbException;
-import provided.util.DaoBase;
 
 
 public class ProjectDao extends DaoBase {
@@ -44,7 +43,7 @@ public class ProjectDao extends DaoBase {
 				
 				stmt.executeUpdate();
 				
-				Integer projectId = getLastInsertId(conn, PROJECT_TABLE);
+				Integer projectId = getLastInsertId1(conn, PROJECT_TABLE);
 				commitTransaction(conn);
 				
 				project.setProjectId(projectId);
@@ -62,19 +61,19 @@ public class ProjectDao extends DaoBase {
 	}
 
 
-	private Integer getLastInsertId(Connection conn, String projectTable) {
+	protected Integer getLastInsertId1(Connection conn, String projectTable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	private Integer getLastInsertId(Connection conn, String projectTable) {
+	protected Integer getLastInsertId2(Connection conn, String projectTable) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	private Integer getLastInsertId(Connection conn, String projectTable) {
+	protected Integer getLastInsertId(Connection conn, String projectTable) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,0 +1,115 @@
+package projects;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
+
+import projects.exception.DbException;
+
+public class ProjectApp {
+	private Scanner scanner = new Scanner(System.in);
+	
+	// @formatter:off
+	private List<String> operations = List.of(
+			"1) Add a project"
+	);
+	// @formatter:on
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		new ProjectApp().processUserSelections();
+	}
+	
+	
+	private void processUserSelections() {
+		// TODO Auto-generated method stub
+		boolean done = false;
+		
+		while (!done) {
+			try {
+				int selection = getUserSelection1();
+				
+				switch(selection) {
+					case -1:
+						done = exitMenu();
+						break;
+						
+					case 1:
+						createProject();
+						break;
+						
+					default:
+						System.out.println("\n" + " is not valid selection. Try again.");
+						break;
+				}
+			}
+			
+		catch(Exception e) {
+			System.out.println("\nError: " + e + " Try again.");
+			}
+		}			
+	}
+
+
+	private void createProject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private boolean exitMenu() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	private Integer getIntInput(String prompt) {
+		// TODO Auto-generated method stub
+		String input = getStringInput(prompt);
+		
+		if(Objects.isNull(input)) {
+			return null;	
+	}
+	try {
+		return Integer.valueOf(input);
+	}
+	catch(NumberFormatException e) {
+		throw new DbException(input + " is not a valid number.");
+		}
+	}
+
+	
+	private String getStringInput(String prompt) {
+		// TODO Auto-generated method stub
+		System.out.print(prompt + ": ");
+		String input = scanner.nextLine();
+		
+		
+		return input.isBlank() ? null : input.trim();
+	}
+
+
+	private int getUserSelection() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	private void printOperation() {
+		// TODO Auto-generated method stub
+		System.out.println("\nThese are the available selections.Press the Enter key to quit:");
+		
+		operations.forEach(line -> System.out.println(" " + line));
+		
+	}	
+	public int getUserSelection1() {
+		printOperation();
+		
+		Integer input = getIntInput("Enter a menu selection");
+		
+		return Objects.isNull(input) ? -1 : input;
+	}
+}

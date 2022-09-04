@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 
 public class Material {
 
-
-	  private Integer materialId;
+	private Integer materialId;
 	  private Integer projectId;
 	  private String materialName;
 	  private Integer numRequired;
@@ -56,7 +55,6 @@ public class Material {
 	    return "ID=" + materialId + ", materialName=" + materialName + ", numRequired=" + numRequired
 	        + ", cost=" + cost;
 	  }
-	
 
 	
 }

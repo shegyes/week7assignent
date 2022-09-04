@@ -2,7 +2,6 @@ package projects.entity;
 
 public class Category {
 
-	
 	private Integer categoryId;
 	  private String categoryName;
 
@@ -26,9 +25,6 @@ public class Category {
 	  public String toString() {
 	    return "ID=" + categoryId + ", categoryName=" + categoryName;
 	  }
-
-	  
-
 
 	
 }
