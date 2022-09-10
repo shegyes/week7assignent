@@ -13,13 +13,11 @@ import projects.service.ProjectService;
 public class ProjectApp {
 	private Scanner scanner = new Scanner(System.in);
 	private ProjectService projectService = new ProjectService();
-	private Project curProject;
 	
 	// @formatter:off
 	private List<String> operations = List.of(
-			"1) Add a project",
-			"2) List projects",
-			"3) Select a project"
+			"1) Add a project"
+			"2) List projects"
 	);
 	// @formatter:on
 	
@@ -53,10 +51,6 @@ public class ProjectApp {
 						listProjects();
 						break;
 						
-					case 3:
-						selectProject();
-						break;
-						
 					default:
 						System.out.println("\n" + " is not valid selection. Try again.");
 						break;
@@ -67,19 +61,6 @@ public class ProjectApp {
 			System.out.println("\nError: " + e + " Try again.");
 			}
 		}			
-	}
-
-
-	private void selectProject() {
-		// TODO Auto-generated method stub
-		listProjects();
-		Integer projectId = getIntInput("Enter a project ID to select a project");
-		
-		//Unselect
-		curProject = null;
-		
-		//throws an exception if invalid project id entered
-		curProject = projectService.fetchProjectById(projectId);
 	}
 
 
@@ -172,13 +153,6 @@ public class ProjectApp {
 		System.out.println("\nThese are the available selections.Press the Enter key to quit:");
 		
 		operations.forEach(line -> System.out.println(" " + line));
-		
-		if(Objects.isNull(curProject)) {
-			System.out.println("\nYou are not working with a project.");
-		}
-		else {
-			System.out.println("\nYou are working with project: " + curProject);
-		}
 		
 	}	
 	public int getUserSelection1() {
